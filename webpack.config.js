@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const src_dir = path.join(__dirname, '/client/src');
 const dist_dir = path.join(__dirname, '/public/dist');
 

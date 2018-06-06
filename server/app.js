@@ -1,30 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
-const config = require('../webpack.config');
 const db = require('../database/index');
 
 const app = express();
-const compiler = webpack(config);
-
-app.use(webpackDevMiddleware(compiler, {
-  publicPath: config.output.publicPath,
-  hot: true,
-  historyApiFallback: true,
-  stats: {
-    colors: true,
-    hash: false,
-    version: false,
-    chunks: false,
-    children: false,
-  },
-}));
-
-app.use(webpackHotMiddleware(compiler));
-
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../public')));
