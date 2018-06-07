@@ -29,7 +29,7 @@ class Description extends React.Component {
 
     if (isLengthy) {
       return (
-        <div>
+        <div id="restaurantDescription">
           <div>
             {!this.state.showAll ? this.state.displayDescription : this.props.description}
           </div>
@@ -38,7 +38,7 @@ class Description extends React.Component {
       );
     }
     return (
-      <div>{this.props.description}</div>
+      <div id="restaurantDescription">{this.props.description}</div>
     );
   }
 }

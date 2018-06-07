@@ -2,6 +2,7 @@ import React from 'react';
 import ReviewsOverview from './ReviewsOverview.jsx';
 import TopTags from './TopTags.jsx';
 import Description from './Description.jsx';
+import RestaurantInfo from './RestaurantInfo.jsx';
 
 class Overview extends React.Component {
   constructor(props) {
@@ -20,8 +21,7 @@ class Overview extends React.Component {
           <ReviewsOverview />
           <TopTags />
           <Description description={this.description}/>
-
-          {/* <RestaurantInfo /> */}
+          <RestaurantInfo />
         </div> 
       </div>
     );

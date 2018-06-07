@@ -57,7 +57,11 @@
 }
 
 
-/* This is for the  */
+/* This is for the Description component */
+#restaurantDescription {
+  margin-bottom: 30px;
+}
+
 .toggleDescription {
   color: #CA4548;
   text-decoration: none;
@@ -67,4 +71,43 @@
 .toggleDescription:hover {
   color: #CA4548;
   text-decoration: underline;
+}
+
+
+/* This is for the RestaurantInfo component */
+#restaurantInfo {
+  padding: 0px;
+  font-size: 0.85rem;
+}
+
+.infoSection {
+  margin-bottom: 10px;
+}
+
+.infoTitle {
+  font-weight: 700;
+  position: relative;
+  bottom: 4px;
+  margin-left: 8px;
+}
+
+.infoContent {
+  margin-left: 28px;
+  position: relative;
+  bottom: 4px;
+}
+
+
+
+
+.test {
+  background-color: blue;
+}
+
+.test2 {
+  background-color: red;
+}
+
+.infoIcon {
+
 }

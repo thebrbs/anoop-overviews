@@ -15,7 +15,7 @@ const ReviewsOverview = (props) => (
       <span className="priceRange">$30 and under</span>
     </div>
     <div className="cuisineTypeContainer">
-      <span className="fa fa-cutlery test"></span>
+      <span className="fa fa-cutlery"></span>
       <span className="cuisineType">Seafood</span>
     </div>
   </div>
