@@ -20,6 +20,10 @@ const overviewSchema = new mongoose.Schema({
   payment_options: String,
   dress_code: String,
   executive_chef: String,
+  location: {
+    lat: Number,
+    lng: Number,
+  },
   address: String,
   neighborhood: String,
   cross_street: String,

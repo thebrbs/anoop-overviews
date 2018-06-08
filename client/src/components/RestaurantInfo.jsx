@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import RestaurantInfoEntry from './RestaurantInfoEntry.jsx';
+import MapContainer from './MapContainer.jsx';
 
-const RestaurantInfo = (props) => (
+const RestaurantInfo = props => (
   <div id="restaurantInfo" className="container">
     <div className="row">
       <div className="col">
@@ -15,6 +17,9 @@ const RestaurantInfo = (props) => (
         <RestaurantInfoEntry section="executive_chef" restaurant={props.restaurant} />
       </div>
       <div className="col">
+        <div id="map">
+          <MapContainer location={props.restaurant.location} />
+        </div>
         <RestaurantInfoEntry section="address" restaurant={props.restaurant} />
         <RestaurantInfoEntry section="neighborhood" restaurant={props.restaurant} />
         <RestaurantInfoEntry section="cross_street" restaurant={props.restaurant} />
@@ -25,5 +30,9 @@ const RestaurantInfo = (props) => (
     </div>
   </div>
 );
+
+RestaurantInfo.propTypes = {
+  restaurant: PropTypes.object,
+};
 
 export default RestaurantInfo;
