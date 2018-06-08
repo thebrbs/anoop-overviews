@@ -9,7 +9,6 @@ class Description extends React.Component {
     if (displayDescription.length > 259) {
       displayDescription = displayDescription.slice(0, 260) + '...';
     };
-    console.log(displayDescription);
     this.state = {
       displayDescription: displayDescription,
       showAll: false,
@@ -25,8 +24,7 @@ class Description extends React.Component {
   }
 
   render() {
-    const isLengthy = this.state.displayDescription !== this.props.description;
-    console.log(isLengthy);
+    let isLengthy = this.state.displayDescription !== this.props.description;
 
     if (isLengthy) {
       return (
