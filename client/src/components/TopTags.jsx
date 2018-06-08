@@ -1,12 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TagEntry from './TagEntry.jsx';
 
 class TopTags extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tags: ['Good for Lunch', 'Vegetarian', 'Good for Kids', 'Good for Pets', 'Non-Smoking', 'Budget Meals', 'Catering', 'Wheelchair Accessible'],
+      tags: this.sortTags(),
     };
+  }
+
+  sortTags() {
+    const sortedTags = this.props.tags.sort((tagA, tagB) => tagB.voteCount - tagA.voteCount);
+    return sortedTags.slice(0, 6);
   }
 
   render() {
@@ -24,5 +30,10 @@ class TopTags extends React.Component {
     );
   }
 }
+
+TopTags.propTypes = {
+  tags: PropTypes.array,
+  tags: PropTypes.arrayOf(PropTypes.object),
+};
 
 export default TopTags;

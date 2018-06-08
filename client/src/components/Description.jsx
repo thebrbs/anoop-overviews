@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Description extends React.Component {
   constructor(props) {
@@ -42,5 +43,9 @@ class Description extends React.Component {
     );
   }
 }
+
+Description.propTypes = {
+  description: PropTypes.string,
+};
 
 export default Description;

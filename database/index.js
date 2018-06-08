@@ -6,8 +6,10 @@ mongoose.connect('mongodb://localhost/cavatable_overviews');
 const overviewSchema = new mongoose.Schema({
   rest_id: Number,
   rest_name: String,
+  price_range: String,
+  description: String,
   dining_style: String,
-  cuisines: String,
+  cuisine: String,
   hours_of_operation: {
     breakfast: String,
     lunch: String,

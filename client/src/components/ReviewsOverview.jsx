@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const ReviewsOverview = (props) => (
   <div id="reviewsOverviewComponent">
@@ -12,13 +13,18 @@ const ReviewsOverview = (props) => (
     </div>
     <div className="priceRangeContainer">
       <span className="fa fa-money"></span>
-      <span className="priceRange">$30 and under</span>
+      <span className="priceRange">{props.priceRange}</span>
     </div>
     <div className="cuisineTypeContainer">
       <span className="fa fa-cutlery"></span>
-      <span className="cuisineType">Seafood</span>
+      <span className="cuisineType">{props.cuisine}</span>
     </div>
   </div>
 );
+
+ReviewsOverview.propTypes = {
+  priceRange: PropTypes.string,
+  cuisine: PropTypes.string,
+};
 
 export default ReviewsOverview;
