@@ -1,8 +1,8 @@
 import React from 'react';
 import RestaurantInfoEntry from './RestaurantInfoEntry.jsx';
 
-const RestaurantInfo = (props) => (
-  <div id="restaurantInfo" className="container">
+const RestaurantInfo = props => (
+  <div id="restaurantInfo" className="container hidden">
     <div className="row">
       <div className="col">
         <RestaurantInfoEntry section="dining_style" restaurant={props.restaurant} />
