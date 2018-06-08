@@ -37,7 +37,7 @@ const RestaurantInfoEntry = (props) => {
         {icons.website}
         <span className="infoTitle">{sectionTitles.website}</span>
         <div className="infoContent">
-          <a href={props.restaurant.website}>{props.restaurant.website}</a>
+          <a id="websiteInfo" href={props.restaurant.website}>{props.restaurant.website}</a>
         </div>
       </div>
     );
@@ -72,6 +72,7 @@ const RestaurantInfoEntry = (props) => {
 };
 
 RestaurantInfoEntry.propTypes = {
+  section: PropTypes.string,
   restaurant: PropTypes.object,
 };
 

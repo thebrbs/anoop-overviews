@@ -92,3 +92,13 @@
   position: relative;
   bottom: 4px;
 }
+
+#websiteInfo {
+  color: #CA4548;
+}
+
+/* This is for the MapContainer component */
+#map {
+  width: 200px;
+  height: 200px;
+}
