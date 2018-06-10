@@ -4,7 +4,7 @@ import RestaurantInfoEntry from './RestaurantInfoEntry.jsx';
 import MapContainer from './MapContainer.jsx';
 
 const RestaurantInfo = props => (
-  <div id="restaurantInfo" className="container">
+  <div id="restaurantInfo" className="container hidden">
     <div className="row">
       <div className="col">
         <RestaurantInfoEntry section="dining_style" restaurant={props.restaurant} />
