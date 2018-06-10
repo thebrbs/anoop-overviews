@@ -4,15 +4,7 @@ import RestaurantInfoEntry from './RestaurantInfoEntry.jsx';
 import MapContainer from './MapContainer.jsx';
 
 const RestaurantInfo = props => (
-<<<<<<< HEAD
-<<<<<<< HEAD
-  <div id="restaurantInfo" className="container">
-=======
   <div id="restaurantInfo" className="container hidden">
->>>>>>> Implemented "View All Button" toggle and style
-=======
-  <div id="restaurantInfo" className="container hidden">
->>>>>>> 4e1a3916b0a7e2c5151862b8902bad015c588247
     <div className="row">
       <div className="col">
         <RestaurantInfoEntry section="dining_style" restaurant={props.restaurant} />

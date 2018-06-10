@@ -13,11 +13,11 @@ class Overview extends React.Component {
       restaurant: {},
       displayAll: false,
     };
-    this.getIntialData();
+    this.getInitialData();
     this.toggleDisplayAll = this.toggleDisplayAll.bind(this);
   }
 
-  getIntialData() {
+  getInitialData() {
     axios.get('/restaurant/1001/overview')
       .then(response => {
         this.setState({
