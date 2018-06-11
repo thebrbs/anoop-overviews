@@ -1,5 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Overview from './components/Overview.jsx';
+import { BrowserRouter } from 'react-router-dom';
+import OverviewModule from './components/OverviewModule.jsx';
 
-ReactDOM.render(<Overview />, document.getElementById('overview_module'));
+ReactDOM.render((
+  <BrowserRouter>
+    <OverviewModule />
+  </BrowserRouter>
+), document.getElementById('overview_module'));

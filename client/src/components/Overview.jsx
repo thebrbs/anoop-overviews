@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import PropTypes from 'prop-types';
 import ReviewsOverview from './ReviewsOverview.jsx';
 import TopTags from './TopTags.jsx';
 import Description from './Description.jsx';
@@ -18,7 +17,7 @@ class Overview extends React.Component {
   }
 
   getInitialData() {
-    axios.get('/restaurant/1001/overview')
+    axios.get(`/restaurant/${this.props.match.params.restaurantId}/overview`)
       .then(response => {
         this.setState({
           restaurant: response.data[0],
