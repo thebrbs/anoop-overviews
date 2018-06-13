@@ -1,23 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from '../styles/ReviewsOverview.css';
 
-const ReviewsOverview = (props) => (
+const ReviewsOverview = props => (
   <div id="reviewsOverviewComponent">
-    <div className="avgReviewContainer">
-      <img src="./images/star-rating.png" width="70" height="30"></img>
-      <span className="avgReview">4.5</span>
+    <div className={styles.avgReviewContainer}>
+      <img src="./images/star-rating.png" alt="" width="70" height="30"></img>
+      <span className={styles.avgReview}>4.5</span>
     </div>
-    <div className="totalReviewsContainer">
+    <div className={styles.totalReviewsContainer}>
       <span className="fa fa-comments"></span>
-      <span className="totalReviews">333 reviews</span>
+      <span className={styles.totalReviews}>333 reviews</span>
     </div>
-    <div className="priceRangeContainer">
+    <div className={styles.priceRangeContainer}>
       <span className="fa fa-money"></span>
-      <span className="priceRange">{props.priceRange}</span>
+      <span className={styles.priceRange}>{props.priceRange}</span>
     </div>
-    <div className="cuisineTypeContainer">
+    <div className={styles.cuisineTypeContainer}>
       <span className="fa fa-cutlery"></span>
-      <span className="cuisineType">{props.cuisine}</span>
+      <span className={styles.cuisineType}>{props.cuisine}</span>
     </div>
   </div>
 );

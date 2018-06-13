@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from '../styles/Description.css';
 
 class Description extends React.Component {
   constructor(props) {
@@ -28,16 +29,16 @@ class Description extends React.Component {
 
     if (isLengthy) {
       return (
-        <div id="restaurantDescription">
+        <div className={styles.restaurantDescription}>
           <div>
             {!this.state.showAll ? this.state.displayDescription : this.props.description}
           </div>
-          <a className="toggleDescription" href="#" onClick={this.toggleDescription}>{this.state.showAll ? '- Read Less' : '+ Read More'}</a>
+          <a className={styles.toggleDescription} href="#" onClick={this.toggleDescription}>{this.state.showAll ? '- Read Less' : '+ Read More'}</a>
         </div>
       );
     }
     return (
-      <div id="restaurantDescription">{this.props.description}</div>
+      <div className={styles.restaurantDescription}>{this.props.description}</div>
     );
   }
 }

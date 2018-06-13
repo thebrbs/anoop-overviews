@@ -4,38 +4,41 @@ const src_dir = path.join(__dirname, '/client/src');
 const dist_dir = path.join(__dirname, '/public/dist');
 
 module.exports = {
-  mode: 'development',
   entry: [
     `${src_dir}/index.jsx`,
   ],
-  output: {
-    filename: 'bundle.js',
-    path: dist_dir,
-  },
   module : {
     rules : [
       {
-        test : /\.jsx?/,
+        test : [/\.jsx?/],
         include : src_dir,
-        loader : 'babel-loader',
+        loader : "babel-loader",
         query: {
           presets: ['react', 'es2015'],
-        },
+        }
       },
       {
         test: /\.css$/,
-        use: [ 'style-loader', 'css-loader', 'postcss-loader' ],
-      },
-      {
-        test: /\.scss$/,
-        include: src_dir,
         use: [
-          'style-loader', // creates style nodes from JS strings
-          'css-loader', // translates CSS into CommonJS
-          'postcss-loader',
-          'sass-loader', // compiles Sass to CSS
-        ],
-      },
-    ],
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              importLoaders: 2,
+              localIdentName: "[name]_[local]_[hash:base64]",
+              sourceMap: true,
+              minimize: true,
+            }
+          }
+        ]
+      }
+    ]
+  },
+  output: {
+    filename: 'bundle.js',
+    path: dist_dir,
   },
 };

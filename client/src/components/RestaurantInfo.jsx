@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import RestaurantInfoEntry from './RestaurantInfoEntry.jsx';
 import MapContainer from './MapContainer.jsx';
+import styles from '../styles/RestaurantInfo.css';
 
 const RestaurantInfo = props => (
-  <div id="restaurantInfo" className="container hidden">
+  <div id="restaurantInfo" className={`container ${styles.hidden} ${styles.restaurantInfo}`}>
     <div className="row">
       <div className="col">
         <RestaurantInfoEntry section="dining_style" restaurant={props.restaurant} />
