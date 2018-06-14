@@ -1,5 +1,4 @@
 const path = require('path');
-
 const src_dir = path.join(__dirname, '/client/src');
 const dist_dir = path.join(__dirname, '/public/dist');
 
