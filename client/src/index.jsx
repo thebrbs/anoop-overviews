@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Webpage from './components/Webpage.jsx';
+import Overview from './components/Overview.jsx';
 
-ReactDOM.render((
-  <BrowserRouter>
-    <Route exact path="/restaurant/:restaurantId" component={Webpage} />
-  </BrowserRouter>
-), document.getElementById('webpage'));
+ReactDOM.render(
+  (
+    <BrowserRouter>
+      <Route exact path="/restaurant/:restaurantId" component={Overview} />
+    </BrowserRouter>
+  ),
+  document.getElementById('overviewModule'),
+);
