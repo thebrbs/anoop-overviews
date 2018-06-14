@@ -7,6 +7,8 @@ const app = express();
 
 app.use(bodyParser.json());
 
+app.use('/overviewsBundle.js', express.static(path.join(__dirname, '../public/dist/bundle.js')));
+
 app.get('/restaurant/:restaurantId/overview', (req, res) => {
   db.retrieve(req.params.restaurantId, (err, results) => {
     if (err && err.message.includes('Cast to number failed for value "NaN"')) {

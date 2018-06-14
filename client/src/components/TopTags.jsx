@@ -22,7 +22,7 @@ class TopTags extends React.Component {
         <div className={styles.tagSectionHeader}>Top Tags:</div>
         <div className={styles.tagScrollWrapper}>
           {
-            this.state.tags.map((tag, i) => <TagEntry tag={tag} key={i}/>)
+            this.state.tags.map((tag, i) => <TagEntry tag={tag} key={i} />)
           }
         </div>
       </div>

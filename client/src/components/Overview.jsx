@@ -19,8 +19,8 @@ class Overview extends React.Component {
   }
 
   getInitialData() {
-    axios.get(`overviews/restaurant/${this.props.restaurantId}/overview`)
-      .then(response => {
+    axios.get(`/overviews/restaurant/${this.props.match.params.restaurantId}/overview`)
+      .then((response) => {
         this.setState({
           restaurant: response.data[0],
         });

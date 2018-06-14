@@ -33,7 +33,7 @@ const RestaurantInfo = props => (
 );
 
 RestaurantInfo.propTypes = {
-  restaurant: PropTypes.object,
+  restaurant: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default RestaurantInfo;
