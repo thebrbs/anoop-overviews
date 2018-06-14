@@ -6,7 +6,6 @@ const db = require('../database/index');
 const app = express();
 
 app.use(bodyParser.json());
-app.use('/restaurant/:restaurantId', express.static(path.join(__dirname, '../public')));
 
 app.get('/restaurant/:restaurantId/overview', (req, res) => {
   db.retrieve(req.params.restaurantId, (err, results) => {

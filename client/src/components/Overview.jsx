@@ -4,6 +4,8 @@ import ReviewsOverview from './ReviewsOverview.jsx';
 import TopTags from './TopTags.jsx';
 import Description from './Description.jsx';
 import RestaurantInfo from './RestaurantInfo.jsx';
+import styles from '../styles/Overview.css';
+import styles2 from '../styles/RestaurantInfo.css';
 
 class Overview extends React.Component {
   constructor(props) {
@@ -17,7 +19,7 @@ class Overview extends React.Component {
   }
 
   getInitialData() {
-    axios.get(`/restaurant/${this.props.match.params.restaurantId}/overview`)
+    axios.get(`overviews/restaurant/${this.props.restaurantId}/overview`)
       .then(response => {
         this.setState({
           restaurant: response.data[0],
@@ -28,7 +30,7 @@ class Overview extends React.Component {
 
   toggleDisplayAll() {
     const restaurantInfoDiv = document.getElementById('restaurantInfo');
-    restaurantInfoDiv.classList.toggle('hidden');
+    restaurantInfoDiv.classList.toggle(styles2.hidden);
     this.setState({
       displayAll: !this.state.displayAll,
     });
@@ -37,17 +39,17 @@ class Overview extends React.Component {
   render() {
     if (Object.keys(this.state.restaurant).length !== 0) {
       return (
-        <div className="card border-0 rounded-0">
-          <div className="card-body">
-            <h1 className="overview-title">{this.state.restaurant.rest_name}</h1>
+        <div className={`card border-0 rounded-0 ${styles.overviewMod}`}>
+          <div className={`card-body ${styles['card-body']}`}>
+            <h1 className={styles.overviewTitle}>{this.state.restaurant.rest_name}</h1>
             <ReviewsOverview priceRange={this.state.restaurant.price_range} cuisine={this.state.restaurant.cuisine} />
             <TopTags tags={this.state.restaurant.tags} />
             <Description description={this.state.restaurant.description} />
             <RestaurantInfo restaurant={this.state.restaurant} displayAll={this.state.displayAll} />
-            {!this.state.displayAll ? <div id="fade">&nbsp;</div> : null}
+            {!this.state.displayAll ? <div className={styles.fade}>&nbsp;</div> : null}
           </div>
           <div>
-            <div className="displayAllBtn" onClick={this.toggleDisplayAll}>
+            <div className={styles.displayAllBtn} onClick={this.toggleDisplayAll}>
               {this.state.displayAll ? 'View less details' : 'View all details'}
             </div>
           </div>

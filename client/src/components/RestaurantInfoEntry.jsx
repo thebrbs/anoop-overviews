@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import icons from '../icons.jsx';
+import styles from '../styles/RestaurantInfoEntry.css';
 
 const RestaurantInfoEntry = (props) => {
   const sectionTitles = {
@@ -21,10 +22,10 @@ const RestaurantInfoEntry = (props) => {
 
   if (props.section === 'hours_of_operation') {
     return (
-      <div className="infoSection">
+      <div className={styles.infoSection}>
         {icons.hours_of_operation}
-        <span className="infoTitle">{sectionTitles.hours_of_operation}</span>
-        <div className="infoContent">
+        <span className={styles.infoTitle}>{sectionTitles.hours_of_operation}</span>
+        <div className={styles.infoContent}>
           <div>{props.restaurant.hours_of_operation.breakfast}</div>
           <div>{props.restaurant.hours_of_operation.lunch}</div>
           <div>{props.restaurant.hours_of_operation.dinner}</div>
@@ -33,38 +34,38 @@ const RestaurantInfoEntry = (props) => {
     );
   } else if (props.section === 'website') {
     return (
-      <div className="infoSection">
+      <div className={styles.infoSection}>
         {icons.website}
-        <span className="infoTitle">{sectionTitles.website}</span>
-        <div className="infoContent">
-          <a id="websiteInfo" href={props.restaurant.website}>{props.restaurant.website}</a>
+        <span className={styles.infoTitle}>{sectionTitles.website}</span>
+        <div className={styles.infoContent}>
+          <a className={styles.websiteInfo} href={props.restaurant.website}>{props.restaurant.website}</a>
         </div>
       </div>
     );
   } else if (props.section === 'address') {
     return (
-      <div className="infoSection">
+      <div className={`${styles.infoSection} ${styles.belowMap}`}>
         {icons.address}
-        <span className="infoTitle">{props.restaurant.address}</span>
+        <span className={styles.infoTitle}>{props.restaurant.address}</span>
       </div>
     );
   } else if (props.section === 'tags') {
     const tagNames = props.restaurant.tags.map(tagObj => tagObj.tagName);
     return (
-      <div className="infoSection">
+      <div className={styles.infoSection}>
         {icons.tags}
-        <span className="infoTitle">{sectionTitles.tags}</span>
-        <div className="infoContent">
+        <span className={styles.infoTitle}>{sectionTitles.tags}</span>
+        <div className={styles.infoContent}>
           {tagNames.join(', ')}
         </div>
       </div>
     );
   }
   return (
-    <div className="infoSection">
+    <div className={styles.infoSection}>
       {icons[props.section]}
-      <span className="infoTitle">{sectionTitles[props.section]}</span>
-      <div className="infoContent">
+      <span className={styles.infoTitle}>{sectionTitles[props.section]}</span>
+      <div className={styles.infoContent}>
         {props.restaurant[props.section]}
       </div>
     </div>

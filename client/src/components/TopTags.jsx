@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TagEntry from './TagEntry.jsx';
+import styles from '../styles/TopTags.css';
 
 class TopTags extends React.Component {
   constructor(props) {
@@ -17,14 +18,12 @@ class TopTags extends React.Component {
 
   render() {
     return (
-      <div id="topTagsContainer">
-        <div className="tagSectionHeader">Top Tags:</div>
-        <div className="tagSectionBody">
-          <div className="tagScrollWrapper">
-            {
-              this.state.tags.map((tag, i) => <TagEntry tag={tag} key={i}/>)
-            }
-          </div>
+      <div className={styles.topTagsContainer}>
+        <div className={styles.tagSectionHeader}>Top Tags:</div>
+        <div className={styles.tagScrollWrapper}>
+          {
+            this.state.tags.map((tag, i) => <TagEntry tag={tag} key={i}/>)
+          }
         </div>
       </div>
     );
