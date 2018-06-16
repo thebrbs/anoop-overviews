@@ -8,6 +8,7 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use('/overviewsBundle.js', express.static(path.join(__dirname, '../public/dist/bundle.js')));
+app.use('/images/star-rating.png', express.static(path.join(__dirname, '../public/images/star-rating.png')));
 
 app.get('/restaurant/:restaurantId/overview', (req, res) => {
   db.retrieve(req.params.restaurantId, (err, results) => {

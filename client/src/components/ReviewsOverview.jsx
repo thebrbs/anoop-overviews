@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from '../styles/ReviewsOverview.css';
+import icons from '../icons.jsx';
 
 const ReviewsOverview = props => (
   <div id="reviewsOverviewComponent">
     <div className={styles.avgReviewContainer}>
-      <img src="./images/star-rating.png" alt="" width="70" height="30"></img>
+      <img src="/overviews/images/star-rating.png" alt="" width="70" height="30"></img>
       <span className={styles.avgReview}>4.5</span>
     </div>
     <div className={styles.totalReviewsContainer}>
@@ -17,7 +18,7 @@ const ReviewsOverview = props => (
       <span className={styles.priceRange}>{props.priceRange}</span>
     </div>
     <div className={styles.cuisineTypeContainer}>
-      <span className="fa fa-cutlery"></span>
+      <span className="cutlery">{icons.cuisineSmall}</span>
       <span className={styles.cuisineType}>{props.cuisine}</span>
     </div>
   </div>
