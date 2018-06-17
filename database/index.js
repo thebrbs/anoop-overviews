@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
-const overviewsData = require('./data.js');
 
-mongoose.connect('mongodb://localhost/cavatable_overviews');
+const mongoURL = process.env.mongoURL || 'mongodb://localhost/cavatable_overviews';
+
+mongoose.connect(mongoURL);
 
 const overviewSchema = new mongoose.Schema({
   rest_id: Number,
@@ -32,12 +33,7 @@ const overviewSchema = new mongoose.Schema({
   tags: [{ tagName: String, voteCount: Number }],
 });
 
-const OverviewModel = mongoose.model('Overview', overviewSchema);
-
-OverviewModel.remove({})
-  .then(() => OverviewModel.insertMany(overviewsData))
-  .then(() => console.log('Successfully stored in database'))
-  .catch(err => console.error(err));
+const OverviewModel = mongoose.model('overviews', overviewSchema);
 
 const retrieve = (restaurantId, handleResponse) => {
   OverviewModel.find({ rest_id: parseInt(restaurantId, 10) })
