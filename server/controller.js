@@ -14,15 +14,16 @@ module.exports = {
       });
     },
     postOverview(req, res) {
-      // 201
+      db.createOverview(req.params, (err, results) => err ? 
+        res.status(409).end(err) : res.sendStatus(201));
     },
     updateOverview(req, res) {
-      db.update(req.params.restaurantId, (err, results) => err ?
-        res.status(500).end(err) : res.sendStatus(200));
+      db.update(req.params, (err, results) => err ?
+        res.status(500).end(err) : res.sendStatus(202));
     },
     deleteOverview(req, res) {
       db.delete(req.params.restaurantId, (err, results) => err ?
-        res.status(404).end(err) : res.sendStatus(200));
+        res.status(404).end(err) : res.sendStatus(204));
     }
   }
 };
