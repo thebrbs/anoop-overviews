@@ -9,21 +9,19 @@ module.exports = {
         } else if (err) {
           res.status(500).json('Unable to retrieve overview data from database');
         } else {
-          res.status(200).json(results);
+          res.json(results);
         }
       });
     },
     postOverview(req, res) {
-      db.createOverview(req.params, (err, results) => err ? 
+      db.createOverview(req.params, (err) => err ? 
         res.status(409).end(err) : res.sendStatus(201));
     },
     updateOverview(req, res) {
-      db.update(req.params, (err, results) => err ?
-        res.status(500).end(err) : res.sendStatus(202));
+      db.update(req.params, (err) => err ? res.status(500).end(err) : res.sendStatus(202));
     },
     deleteOverview(req, res) {
-      db.delete(req.params.restaurantId, (err, results) => err ?
-        res.status(404).end(err) : res.sendStatus(204));
+      db.delete(req.params.restaurantId, (err) => err ? res.status(404).end(err) : res.sendStatus(204));
     }
   }
 };
