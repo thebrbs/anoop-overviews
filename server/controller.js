@@ -14,7 +14,7 @@ module.exports = {
       });
     },
     postOverview(req, res) {
-      db.createOverview(req.params, (err) => err ? 
+      db.create(req.params, (err) => err ? 
         res.status(409).end(err) : res.sendStatus(201));
     },
     updateOverview(req, res) {
