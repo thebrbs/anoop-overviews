@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS overviews (
   rest_id serial PRIMARY KEY,
   rest_name  VARCHAR(100),
   price_range VARCHAR(100),
-  description VARCHAR(900),
+  description VARCHAR(1500),
   dining_style VARCHAR(100),
   cuisine VARCHAR(30),
   tot_reviews INTEGER,
