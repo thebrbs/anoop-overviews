@@ -124,7 +124,7 @@ const generateDressCode = () => dressCodes[Math.floor(Math.random() * 5)];
 module.exports.generateOverview = () => {
   return [ 
   // rest_name
-    hipsum.getWords(Math.floor(Math.random() * 4) + 1).replace(/\b\w/g, l => l.toUpperCase()),
+    hipsum.getWords(Math.floor(Math.random() * 3) + 1).replace(/\b\w/g, l => l.toUpperCase()),
   // price_range
     generatePriceRange(),
   // description
@@ -158,9 +158,9 @@ module.exports.generateOverview = () => {
   // location_lng
     faker.address.longitude(),
   // parking_details
-    hipsum.get(1),
+    `${hipsum.getWords(1).replace(/\b\w/g, l => l.toUpperCase())} ${hipsum.getWords(Math.floor(Math.random() * 10) + 5)}.`,
   // public_transit
-    hipsum.get(1),
+    `${hipsum.getWords(1).replace(/\b\w/g, l => l.toUpperCase())} ${hipsum.getWords(Math.floor(Math.random() * 10) + 5)}.`,
   ]
   .join('|');
 }
