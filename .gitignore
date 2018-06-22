@@ -1,3 +1,5 @@
 node_modules/
 googleMaps.config.js
 public/dist/bundle.js
+database/postgres/data_generation/fake_data/
+database/cassandra/data_generation/fake_data/
