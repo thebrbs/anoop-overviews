@@ -1,7 +1,7 @@
 const overviewsScript = require('./overviews_script');
 const fs = require('fs');
 
-const RECORDS_COUNT = 1000;
+const RECORDS_COUNT = 10000000;
 
 const writerTxt = fs.createWriteStream('fake_data/overviews_data.txt');
 
