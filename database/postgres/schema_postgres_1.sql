@@ -37,5 +37,6 @@ CREATE TABLE IF NOT EXISTS restaurants_tags(
   id SERIAL PRIMARY KEY,
   restaurant_id INT REFERENCES overviews(rest_id),
   tag_id INT REFERENCES tags(id),
-  vote_count INT
+  vote_count INT,
+  UNIQUE KEY(restaurant_id, tag_id )
 );
