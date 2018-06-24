@@ -104,7 +104,6 @@ const generatePaymentOptions = (options) => {
   let randNum = Math.floor(Math.random() * 7);
   while (options !== 0) {
     result.push(paymentOptions[randNum]);
-    // str += `${paymentOptions[randNum]} ,`;
     options--;
     randNum = randNum === 0 ? 6 : randNum - 1;
   }
