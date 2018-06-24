@@ -163,4 +163,4 @@ module.exports.generateOverview = () => {
     `${hipsum.getWords(1).replace(/\b\w/g, l => l.toUpperCase())} ${hipsum.getWords(Math.floor(Math.random() * 10) + 5)}.`,
   ]
   .join('|');
-}
+};

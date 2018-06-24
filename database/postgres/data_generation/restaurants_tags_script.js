@@ -40,4 +40,4 @@ module.exports.generateTagsRestaurants = (rest_id) => {
     }
   }
   return Object.values(result).join('\n');
-}
+};
