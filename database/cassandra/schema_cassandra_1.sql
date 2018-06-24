@@ -29,7 +29,10 @@ CREATE TABLE IF NOT EXISTS cavatable.overviews (
   PRIMARY KEY(rest_id)
 );
 
-CREATE CUSTOM INDEX IF NOT EXISTS payment_options_idx ON overviews (payment_options) USING 'org.apache.cassandra.index.sasi.SASIIndex' WITH OPTIONS = {'mode': 'CONTAINS', 'analyzer_class': 'org.apache.cassandra.index.sasi.analyzer.StandardAnalyzer', 'case_sensitive': 'false'};
+CREATE CUSTOM INDEX IF NOT EXISTS payment_options_idx 
+ON overviews (payment_options) 
+USING 'org.apache.cassandra.index.sasi.SASIIndex' 
+WITH OPTIONS = {'mode': 'CONTAINS', 'analyzer_class': 'org.apache.cassandra.index.sasi.analyzer.StandardAnalyzer', 'case_sensitive': 'false'};
 
 CREATE TABLE IF NOT EXISTS cavatable.restaurants_tags (
   rest_id INT,
