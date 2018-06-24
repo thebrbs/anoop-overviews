@@ -12,10 +12,10 @@ const writeABunch = (writer, getData) => {
     do {
       i--;
       if (i === 0) {
-        writer.write(getData(i + 1));
+        writer.write(getData(RECORDS_COUNT - i));
         writer.end();
       } else {
-        ok = writer.write(getData(i + 1) + '\n');
+        ok = writer.write(getData(RECORDS_COUNT - i) + '\n');
       }
     } while (i > 0 && ok);
     if (i > 0) {
