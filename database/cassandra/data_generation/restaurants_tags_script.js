@@ -35,7 +35,7 @@ module.exports.generateTagsRestaurants = (rest_id) => {
     randomIdx = getRandomTagNum();
     randomTag = tags[randomIdx];
     if (!result[randomTag]) {
-      result[randomTag] = `${rest_id}|${randomIdx + 1}|${getRandomTagVotes()}`;
+      result[randomTag] = `${rest_id}|${randomIdx + 1}|${randomTag}|${getRandomTagVotes()}`;
       tagsCount--;
     }
   }

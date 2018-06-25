@@ -1,9 +1,9 @@
-const restsTagsScript = require('./restaurants_tags_script');
+const overviewsScript = require('./overviews_script');
 const fs = require('fs');
 
 const RECORDS_COUNT = 10000000;
 
-const writerTxt = fs.createWriteStream('fake_data/restaurants_tags_data.txt');
+const writerTxt = fs.createWriteStream('fake_data/overviews_data.txt');
 
 const writeABunch = (writer, getData) => {
   let i = RECORDS_COUNT;
@@ -25,4 +25,4 @@ const writeABunch = (writer, getData) => {
   write();
 };
 
-writeABunch(writerTxt, restsTagsScript.generateTagsRestaurants);
+writeABunch(writerTxt, overviewsScript.generateOverviews);

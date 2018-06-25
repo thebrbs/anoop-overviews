@@ -1,0 +1,1 @@
+COPY overviews (rest_id, rest_name, price_range, description, dining_style, cuisine, tot_reviews, avg_rating, hours_of_operation_brkfst, hours_of_operation_lunch, hours_of_operation_dinner, phone_number, website, payment_options, dress_code, executive_chef, location_lat, location_lng, parking_details, public_transit) FROM 'fake_data/overviews_data.txt' WITH DELIMITER = '|';

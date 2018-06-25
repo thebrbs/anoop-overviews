@@ -120,46 +120,48 @@ const dressCodes = [
 
 const generateDressCode = () => dressCodes[Math.floor(Math.random() * 5)];
 
-module.exports.generateOverview = () => {
+module.exports.generateOverviews = (id = 1) => {
   return [ 
-  // rest_name
-    hipsum.getWords(Math.floor(Math.random() * 3) + 1).replace(/\b\w/g, l => l.toUpperCase()),
-  // price_range
-    generatePriceRange(),
-  // description
-    hipsum.get(1),
-  // dining_style
-    generateDiningStyle(),
-  // cuisine
-    generateCuisine(),
-  // tot_rating
-    Math.floor(Math.random() * 500) + 80,
-  // avg_rating
-    Math.floor(Math.random() * 5) + 1,
-  // hours_of_operation_brkfst
-    generateHoursBrkfst(),
-  // hours_of_operation_lunch
-    generateHoursLunch(),
-  // hours_of_operation_dinner
-    generateHoursDinner(),
-  // phone_number
-    faker.phone.phoneNumber(),
-  // website
-    faker.internet.url(),
-  // payment_options
-    generatePaymentOptions(Math.floor(Math.random() * 7) + 1),
-  // dress_code
-    generateDressCode(),
-  // executive_chef
-    faker.name.findName(),
-  // location_lat
-    faker.address.latitude(),
-  // location_lng
-    faker.address.longitude(),
-  // parking_details
-    `${hipsum.getWords(1).replace(/\b\w/g, l => l.toUpperCase())} ${hipsum.getWords(Math.floor(Math.random() * 10) + 5)}.`,
-  // public_transit
-    `${hipsum.getWords(1).replace(/\b\w/g, l => l.toUpperCase())} ${hipsum.getWords(Math.floor(Math.random() * 10) + 5)}.`,
-  ]
-  .join('|');
-};
+    // rest_id
+      id,
+    // rest_name
+      hipsum.getWords(Math.floor(Math.random() * 3) + 1).replace(/\b\w/g, l => l.toUpperCase()),
+    // price_range
+      generatePriceRange(),
+    // description
+      hipsum.get(1),
+    // dining_style
+      generateDiningStyle(),
+    // cuisine
+      generateCuisine(),
+    // tot_rating
+      Math.floor(Math.random() * 500) + 80,
+    // avg_rating
+      Math.floor(Math.random() * 5) + 1,
+    // hours_of_operation_brkfst
+      generateHoursBrkfst(),
+    // hours_of_operation_lunch
+      generateHoursLunch(),
+    // hours_of_operation_dinner
+      generateHoursDinner(),
+    // phone_number
+      faker.phone.phoneNumber(),
+    // website
+      faker.internet.url(),
+    // payment_options
+      generatePaymentOptions(Math.floor(Math.random() * 7) + 1),
+    // dress_code
+      generateDressCode(),
+    // executive_chef
+      faker.name.findName(),
+    // location_lat
+      faker.address.latitude(),
+    // location_lng
+      faker.address.longitude(),
+    // parking_details
+      `${hipsum.getWords(1).replace(/\b\w/g, l => l.toUpperCase())} ${hipsum.getWords(Math.floor(Math.random() * 10) + 5)}.`,
+    // public_transit
+      `${hipsum.getWords(1).replace(/\b\w/g, l => l.toUpperCase())} ${hipsum.getWords(Math.floor(Math.random() * 10) + 5)}.`,
+    ]
+    .join('|');
+  };
