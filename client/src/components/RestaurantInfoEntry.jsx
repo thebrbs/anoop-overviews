@@ -26,9 +26,9 @@ const RestaurantInfoEntry = (props) => {
         {icons.hours_of_operation}
         <span className={styles.infoTitle}>{sectionTitles.hours_of_operation}</span>
         <div className={styles.infoContent}>
-          <div>{props.restaurant.hours_of_operation.breakfast}</div>
-          <div>{props.restaurant.hours_of_operation.lunch}</div>
-          <div>{props.restaurant.hours_of_operation.dinner}</div>
+          <div>{props.restaurant.hours_of_operation_brkfst}</div>
+          <div>{props.restaurant.hours_of_operation_lunch}</div>
+          <div>{props.restaurant.hours_of_operation_dinner}</div>
         </div>
       </div>
     );
@@ -50,7 +50,7 @@ const RestaurantInfoEntry = (props) => {
       </div>
     );
   } else if (props.section === 'tags') {
-    const tagNames = props.restaurant.tags.map(tagObj => tagObj.tagName);
+    const tagNames = props.restaurant.tags.map(tagObj => tagObj.tag_name);
     return (
       <div className={styles.infoSection}>
         {icons.tags}
