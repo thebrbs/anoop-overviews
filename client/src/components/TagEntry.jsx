@@ -4,7 +4,7 @@ import styles from '../styles/TagEntry.css';
 
 const TagEntry = props => (
   <div className={styles.tag}>
-    {props.tag.tagName}
+    {props.tag.tag_name}
   </div>
 );
 

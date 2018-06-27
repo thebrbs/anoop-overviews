@@ -12,7 +12,7 @@ class TopTags extends React.Component {
   }
 
   sortTags() {
-    const sortedTags = this.props.tags.sort((tagA, tagB) => tagB.voteCount - tagA.voteCount);
+    const sortedTags = this.props.tags.sort((tagA, tagB) => tagB.vote_count - tagA.vote_count);
     return sortedTags.slice(0, 6);
   }
 
