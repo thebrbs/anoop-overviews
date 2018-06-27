@@ -1,27 +1,28 @@
-const db = require('../database/mongo');
+// const db = require('../database/mongo');
+// const db = require('../database/cassandra');
+const db = require('../database/postgres');
 
 module.exports = {
   data: {
     getOverview(req, res) {
-      db.retrieve(req.params.restaurantId, (err, results) => {
-        if (err && err.message.includes('Cast to number failed for value "NaN"')) {
-          res.status(400).json('Bad request');
-        } else if (err) {
-          res.status(500).json('Unable to retrieve overview data from database');
-        } else {
-          res.json(results);
-        }
-      });
+      db.retrieveOvr(req.params.restaurantId)
+        .then(restDetails => res.json(restDetails))
+        .catch(err => res.status(500).end(err));
     },
     postOverview(req, res) {
-      db.create(req.params, (err) => err ? 
-        res.status(409).end(err) : res.sendStatus(201));
+      db.createOvr(req.params)
+        .then(() => res.sendStatus(201))
+        .catch(err => res.status(404).end(err));
     },
     updateOverview(req, res) {
-      db.update(req.params, (err) => err ? res.status(500).end(err) : res.sendStatus(202));
+      db.updateOvr(req.params)
+        .then(() => res.sendStatus(202))
+        .catch(err => res.status(500).end(err));
     },
     deleteOverview(req, res) {
-      db.delete(req.params.restaurantId, (err) => err ? res.status(404).end(err) : res.sendStatus(204));
+      db.deleteOvr(req.params.restaurantId)
+        .then(() => res.sendStatus(301)) 
+        .catch(err => res.status(404).end(err));
     }
-  }
+  },
 };
