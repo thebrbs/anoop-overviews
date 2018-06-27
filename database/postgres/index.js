@@ -32,9 +32,7 @@ const createOvr = (restDetails) => {
     text: 'INSERT INTO overviews (rest_name, price_range, description, dining_style, cuisine, tot_reviews, avg_rating, hours_of_operation_brkfst, hours_of_operation_lunch, hours_of_operation_dinner, phone_number, website, payment_options, dress_code, executive_chef, location_lat, location_lng, parking_details, public_transit) VALUES ()',
     values: [...restDetails],
   };
-  client.query(query)
-    .then(res => console.log(res.rows))
-    .catch(err => console.log(err.stack));
+  return client.query(query);
 };
 // updateOvr
 const updateOvr = () => {
