@@ -11,7 +11,7 @@ const ReviewsOverview = props => (
     </div>
     <div className={styles.totalReviewsContainer}>
       <span className="fa fa-comments"></span>
-      <span className={styles.totalReviews}>333 reviews</span>
+      <span className={styles.totalReviews}>{props.totReviews} reviews</span>
     </div>
     <div className={styles.priceRangeContainer}>
       <span className="fa fa-money"></span>

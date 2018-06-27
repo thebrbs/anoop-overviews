@@ -21,10 +21,7 @@ class Overview extends React.Component {
   getInitialData() {
     axios.get(`/overviews/restaurant/${this.props.match.params.restaurantId}/overview`)
       .then((response) => {
-        console.log('response', response);
-        this.setState({
-          restaurant: response.data,
-        });
+        this.setState({ restaurant: response.data });
       })
       .catch(err => console.error(err));
   }
@@ -43,7 +40,11 @@ class Overview extends React.Component {
         <div className={`card border-0 rounded-0 ${styles.overviewMod}`}>
           <div className={`card-body ${styles['card-body']}`}>
             <h1 className={styles.overviewTitle}>{this.state.restaurant.rest_name}</h1>
-            <ReviewsOverview priceRange={this.state.restaurant.price_range} cuisine={this.state.restaurant.cuisine} />
+            <ReviewsOverview 
+              totReviews={this.state.restaurant.tot_reviews}
+              priceRange={this.state.restaurant.price_range}
+              cuisine={this.state.restaurant.cuisine} 
+            />
             <TopTags tags={this.state.restaurant.tags} />
             <Description description={this.state.restaurant.description} />
             <RestaurantInfo restaurant={this.state.restaurant} displayAll={this.state.displayAll} />
