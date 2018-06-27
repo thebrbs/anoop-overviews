@@ -1,6 +1,6 @@
 // const db = require('../database/mongo');
-// const db = require('../database/cassandra');
-const db = require('../database/postgres');
+const db = require('../database/cassandra');
+// const db = require('../database/postgres');
 
 module.exports = {
   data: {
