@@ -41,5 +41,3 @@ CREATE TABLE IF NOT EXISTS cavatable.restaurants_tags (
   tag_vote_count INT,
   PRIMARY KEY((rest_id), tag_id)
 );
-
-
