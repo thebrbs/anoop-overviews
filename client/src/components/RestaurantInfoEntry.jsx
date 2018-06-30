@@ -50,7 +50,7 @@ const RestaurantInfoEntry = (props) => {
       </div>
     );
   } else if (props.section === 'tags') {
-    const tagNames = props.restaurant.tags.map(tagObj => tagObj.tag_name);
+    const tagNames = props.tags.map(tagObj => tagObj.tag_name);
     return (
       <div className={styles.infoSection}>
         {icons.tags}
