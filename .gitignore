@@ -10,3 +10,4 @@ database/postgres/.DS_STORE
 newrelic.js
 newrelic_agent.log
 server/http2-express/
+server/stressTests/restIds.csv
