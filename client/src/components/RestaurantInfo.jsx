@@ -26,7 +26,7 @@ const RestaurantInfo = props => (
         <RestaurantInfoEntry section="cross_street" restaurant={props.restaurant} />
         <RestaurantInfoEntry section="parking_details" restaurant={props.restaurant} />
         <RestaurantInfoEntry section="public_transit" restaurant={props.restaurant} />
-        <RestaurantInfoEntry section="tags" restaurant={props.restaurant} />
+        <RestaurantInfoEntry section="tags" tags={props.tags}/>
       </div>
     </div>
   </div>

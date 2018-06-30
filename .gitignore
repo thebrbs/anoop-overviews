@@ -7,3 +7,7 @@ database/postgres/postgresconfig.js
 database/postgres/.DS_STORE
 .env
 .DS_STORE
+newrelic.js
+newrelic_agent.log
+server/http2-express/
+server/stressTests/restIds.csv

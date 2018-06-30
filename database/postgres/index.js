@@ -1,56 +1,71 @@
-const { Client } = require('pg');
-const postgresConfig = './postgresconfig';
-const client = new Client({ database: 'overviews' });
-
-client.connect();
+const { Pool } = require('pg');
+const pool = new Pool({ database: 'overviews' });
 
 const retrieveOvr = (restId) => {
-  let result;
-  const query1 = {
-    name: 'fetch-restaurant',
-    text: 'SELECT * FROM overviews WHERE rest_id = $1',
-    values: [restId],
-  };
-  const query2 = {
-    name: 'fetch-tags',
-    text: 'SELECT tags.tag_name, restaurants_tags.vote_count FROM tags, restaurants_tags WHERE restaurants_tags.restaurant_id = $1 AND tags.id = restaurants_tags.tag_id',
-    values: [restId],
-  };
-  return client.query(query1).then(restrnt => {
-    result = restrnt.rows[0];
-    return client.query(query2);
-  })
-  .then(tags => {
-    result.tags = tags.rows;
-    return result;
-  });
-};
-
-const createOvr = (restDetails) => {
   const query = {
-    name: 'create-restaurant',
-    text: 'INSERT INTO overviews (rest_name, price_range, description, dining_style, cuisine, tot_reviews, avg_rating, hours_of_operation_brkfst, hours_of_operation_lunch, hours_of_operation_dinner, phone_number, website, payment_options, dress_code, executive_chef, location_lat, location_lng, parking_details, public_transit) VALUES ()',
-    values: [...restDetails],
-  };
-  return client.query(query);
+    name: 'fetchjson-restaurantAndTags',
+    text: `SELECT
+            row_to_json(r)
+          FROM (SELECT
+            *,
+            (SELECT
+              array_to_json(array_agg(row_to_json(t)))
+            FROM (SELECT
+              tags.tag_name,
+              restaurants_tags.vote_count
+            FROM tags,
+                restaurants_tags
+            WHERE restaurants_tags.restaurant_id = overviews.rest_id
+            AND tags.id = restaurants_tags.tag_id) t)
+            AS tags
+          FROM overviews
+          WHERE rest_id = $1) r`,
+    values: [restId]
+  }
+  return pool.query(query);
 };
-// updateOvr
-const updateOvr = () => {
 
+const createOvr = (queryObj) => {
+  const columnNames = Object.keys(queryObj).join(', ');
+  const values = Object.values(queryObj);
+  const placeHolders = () => {
+    return values.map((el, i) => `$${i + 1}`).join(', ');
+  }
+  return pool.query(`INSERT INTO overviews(${columnNames}) VALUES(${placeHolders()})`, values);
 };
-// deleteOvr
+
+const createTag = (queryObj) => {
+  const values = Object.values(queryObj);
+  return pool.query(`INSERT INTO restaurants_tags
+                      (restaurant_id, tag_id, vote_count)
+                    VALUES
+                      ($1, 
+                      (SELECT id FROM tags WHERE tag_name = $2),
+                      $3)`, values);
+}
+
+const updateOvr = (restId, queryObj) => {
+  const columnsAndNewValsArr = Object.entries(queryObj).map(pair => pair.join(' = '));
+  const setPlaceHolders = () => {
+    return columnsAndNewValsArr.map((el, i) => `$${i + 1}`).join(', ');
+  }
+  return pool.query(`INSERT INTO overviews SET ${setPlaceHolders()} 
+                    WHERE rest_id = $${columnsAndNewValsArr.length + 1}`, [...columnsAndNewValsArr, restId]);
+};
+
 const deleteOvr = (restId) => {
   const query = {
     name: 'delete-restaurant',
     text: 'DELETE FROM overviews WHERE rest_id = $1',
     values: [restId],
   };
-  return client.query(query);
+  return pool.query(query);
 };
 
 module.exports = {
   retrieveOvr,
   createOvr,
+  createTag,
   updateOvr,
   deleteOvr,
 };

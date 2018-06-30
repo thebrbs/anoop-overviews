@@ -12,6 +12,7 @@ class Overview extends React.Component {
     super(props);
     this.state = {
       restaurant: {},
+      tags: {},
       displayAll: false,
     };
     this.getInitialData();
@@ -47,7 +48,11 @@ class Overview extends React.Component {
             />
             <TopTags tags={this.state.restaurant.tags} />
             <Description description={this.state.restaurant.description} />
-            <RestaurantInfo restaurant={this.state.restaurant} displayAll={this.state.displayAll} />
+            <RestaurantInfo
+              displayAll={this.state.displayAll} 
+              restaurant={this.state.restaurant} 
+              tags={this.state.restaurant.tags}
+            />
             {!this.state.displayAll ? <div className={styles.fade}>&nbsp;</div> : null}
           </div>
           <div>
