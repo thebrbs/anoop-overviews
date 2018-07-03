@@ -9,5 +9,5 @@ ReactDOM.render(
       <Route exact path="/restaurant/:restaurantId" component={Overview} />
     </BrowserRouter>
   ),
-  document.getElementById('overviewModule'),
+  document.getElementById('Overviews'),
 );
