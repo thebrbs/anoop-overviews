@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import RestaurantInfoEntry from './RestaurantInfoEntry.jsx';
-import MapContainer from './MapContainer.jsx';
+// import MapContainer from './MapContainer.jsx';
 import styles from '../styles/RestaurantInfo.css';
 
 const RestaurantInfo = props => (
@@ -18,9 +18,9 @@ const RestaurantInfo = props => (
         <RestaurantInfoEntry section="executive_chef" restaurant={props.restaurant} />
       </div>
       <div className="col">
-        <div id="map">
+        {/* <div id="map">
           <MapContainer location={props.restaurant.location} />
-        </div>
+        </div> */}
         <RestaurantInfoEntry section="address" restaurant={props.restaurant} />
         <RestaurantInfoEntry section="neighborhood" restaurant={props.restaurant} />
         <RestaurantInfoEntry section="cross_street" restaurant={props.restaurant} />

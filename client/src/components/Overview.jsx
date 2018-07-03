@@ -12,15 +12,14 @@ class Overview extends React.Component {
     super(props);
     this.state = {
       restaurant: {},
-      tags: {},
       displayAll: false,
     };
     this.getInitialData();
     this.toggleDisplayAll = this.toggleDisplayAll.bind(this);
   }
-
   getInitialData() {
-    axios.get(`/overviews/restaurant/${this.props.match.params.restaurantId}/overview`)
+    const id = this.props.match ? this.props.match.params.restaurantId : this.props.restId;
+    axios.get(`/overviews/restaurant/${id}/overview`)
       .then((response) => {
         this.setState({ restaurant: response.data });
       })
@@ -64,7 +63,7 @@ class Overview extends React.Component {
       );
     }
     return (
-      <div></div>
+      <div>Loading...</div>
     );
   }
 }
