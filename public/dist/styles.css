@@ -1,0 +1,121 @@
+.ReviewsOverview__avgReviewContainer--1xdsq, .ReviewsOverview__totalReviewsContainer--1t8Co, .ReviewsOverview__priceRangeContainer--BUaRS, .ReviewsOverview__cuisineTypeContainer--2q-UP {
+  margin-right: 3%;
+  display: inline-block;
+}
+
+.ReviewsOverview__avgReview--2AxwM, .ReviewsOverview__totalReviews--ASUtJ, .ReviewsOverview__priceRange--D9njZ, .ReviewsOverview__cuisineType--1WgmG {
+  margin-left: 5px;
+  font-weight: 700;
+}.TagEntry__tag--1CiyY {
+  display: inline-block;
+  font-size: 0.80rem;
+  color: #6F737A;
+  font-weight: 700;
+  border: 1px solid #D8D9DB;
+  border-radius: 40px;
+  padding: 7px;
+  margin-right: 10px;
+  flex: 0 0 auto;
+}.TopTags__topTagsContainer--Pqrk- {
+  margin-bottom: 30px;
+}
+
+.TopTags__tagSectionHeader--3MKDb {
+  margin-bottom: 5px;
+}
+
+.TopTags__tagScrollWrapper--3K-GZ {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+.Description__restaurantDescription--2FvBj {
+  margin-bottom: 30px;
+}
+
+.Description__toggleDescription--n_y1Q {
+  color: #CA4548;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.Description__toggleDescription--n_y1Q:hover {
+  color: #CA4548;
+  text-decoration: underline;
+}
+.RestaurantInfoEntry__infoSection--21eXB {
+  margin-bottom: 10px;
+}
+
+.RestaurantInfoEntry__infoTitle--BhzzP {
+  font-weight: 700;
+  position: relative;
+  bottom: 4px;
+  margin-left: 8px;
+}
+
+.RestaurantInfoEntry__infoContent--1m96R {
+  margin-left: 28px;
+  position: relative;
+  bottom: 4px;
+}
+
+.RestaurantInfoEntry__websiteInfo--1jjof {
+  color: #CA4548;
+}
+
+.RestaurantInfoEntry__belowMap--1j9Sw {
+  margin-top: 210px;
+}.RestaurantInfo__restaurantInfo--24pgR {
+  padding: 0px;
+  font-size: 0.85rem;
+  position: relative;
+}
+
+.RestaurantInfo__hidden--KFHBc {
+  height: 250px;
+  overflow: hidden;
+}
+
+.RestaurantInfo__map--1XHnD {
+  width: 200px;
+  height: 200px;
+}.Overview__overviewMod--3JFbZ {
+  margin-bottom: 100px;
+}
+
+.Overview__card-body--3o_oi {
+  padding: 10px;
+}
+
+.Overview__overviewTitle--2fahS {
+  font-weight: 700;
+  border-bottom: 1px solid #EBEBEB; 
+  padding: 25px 0px 25px 0px;
+}
+
+.Overview__displayAllBtn--2qfqV {
+  border: solid 1px #EBEBEB;
+  padding: 10px;
+  margin: auto;
+  width: 250px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.Overview__displayAllBtn--2qfqV:hover {
+  border: solid 2px #CA4548;
+  padding: 9px;
+}
+
+.Overview__fade---ncsR {
+  background: linear-gradient(to bottom, rgba(225, 255, 255, 0), rgba(255, 255, 255, 1));
+  height: 150px;
+  margin-top: -150px;
+  position: relative;
+}
