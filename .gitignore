@@ -1,6 +1,8 @@
 node_modules/
 googleMaps.config.js
-public/dist/bundle.js
+public/dist/overview-bundle.js
+public/dist/overview-bundle-localmicro.js
+public/dist/overview-bundle-server.js
 database/postgres/data_generation/fake_data/
 database/cassandra/data_generation/fake_data/
 database/postgres/postgresconfig.js
